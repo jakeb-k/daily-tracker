@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
+use App\Models\Goal;
+use App\Models\DailyLog;
+use App\Models\DailyLogGoal;
+
 class ProfileController extends Controller
 {
     /**
@@ -56,5 +60,13 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+    /**
+     * Display the user's goals and recent logs.
+     */
+    public function show(){
+        $goals = Auth::user()->goals;
+
+        return view('user')->with('goals', $goals); 
     }
 }
