@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreign('log_id')->references('id')->on('daily_logs');
             $table->unsignedBigInteger('goal_id');
             $table->foreign('goal_id')->references('id')->on('goals');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->float('amount'); 
             $table->timestamps();
         });
