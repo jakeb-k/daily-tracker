@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('goals', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->date('due_date');
-            $table->float('progress');
-            $table->float('goal_total');
+            $table->float('progress')->nullable();
+            $table->float('total');
             $table->string('description'); 
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->timestamps();
         });
     }
