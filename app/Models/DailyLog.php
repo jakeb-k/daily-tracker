@@ -10,8 +10,8 @@ class DailyLog extends Model
     function user(){
         return $this->belongsTo('App\Models\User');
     }
-    function goals(){
-        return $this->hasMany('App\Models\Goal'); 
+    public function dailyLogGoals() {
+        return $this->hasMany('App\Models\DailyLogGoals');
     }
     protected $fillable=[
         'date',

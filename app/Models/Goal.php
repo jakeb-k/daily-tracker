@@ -10,6 +10,9 @@ class Goal extends Model
     function user(){
         return $this->belongsTo('App\Models\User');
     }
+    public function dailyLogGoals() {
+        return $this->hasMany('App\Models\DailyLogGoals');
+    }
     protected $fillable=[
         'name',
         'description',
