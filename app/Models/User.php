@@ -10,6 +10,13 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    
+    function dailyLogs(){
+        return $this->hasMany('App\Models\DailyLog');
+    }
+    function goals(){
+        return $this->hasMany('App\Models\Goal');
+    }
 
     /**
      * The attributes that are mass assignable.
