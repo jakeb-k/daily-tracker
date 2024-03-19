@@ -22,15 +22,16 @@
 
         <h1>Welcome {{Auth::user()->name}}</h1>
         <p>Your current streak is * </p>
-        
+        @if($log)
         <div class="log-display">
             <h3>Last Log</h3>
             <p>Hours: {{$log->hours_worked}}</p>
             <p>{{$log->note}}</p>
             @foreach($goalLogs as $g)
-            <p>{{$g->id}}: {{$g->amount}}</p>
+            <p>{{$g->name}}: +{{$g->amount}}</p>
             @endforeach
         </div>
+        @endif
         <div class="goal-display">
             <h3>Your Goals</h3>
             @foreach($goals as $g)

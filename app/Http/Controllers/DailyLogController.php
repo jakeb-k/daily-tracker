@@ -60,6 +60,7 @@ class DailyLogController extends Controller
                 'amount'.$g->id => 'required|numeric|gte:0'
             ]); 
             $dlg = new DailyLogGoal();
+            $dlg->name = $g->name; 
             $dlg->user_id = Auth::user()->id; 
             $dlg->goal_id = $g->id; 
             $dlg->amount = $validateDlg['amount'.$g->id]; 

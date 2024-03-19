@@ -14,6 +14,7 @@ class DailyLogGoal extends Model
         return $this->belongsTo('App\Models\DailyLog');
     }
     protected $fillable=[
+        'name',
         'goal_id',
         'log_id',
         'user_id',
