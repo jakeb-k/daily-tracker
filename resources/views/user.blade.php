@@ -25,7 +25,7 @@ $emojis = [
         @auth
         <div class="user-options">
             <a href='{{url("goal")}}'>Create a new Goal</a>
-            <a href='{{url("/dailylog/create")}}'>Do your daily log!</a>
+            <a href='{{url("/dailylog/create")}}'> Do your daily log!</a>
             <a href="#">View Log History</a>
         </div>
 
@@ -42,7 +42,7 @@ $emojis = [
             </div>
             
             <p>Hours: <span class="goal-progress"> {{$log->hours_worked}}</span></p>
-            <a href="">View Full Log</a>
+            <a href='{{url("/dailylog/".$log->id)}}'>View Full Log</a>
 
             </div>
         @endforeach

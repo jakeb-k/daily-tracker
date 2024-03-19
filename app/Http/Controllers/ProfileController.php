@@ -72,15 +72,9 @@ class ProfileController extends Controller
         
         $goalLogs = [];
         if($recentLogs) {
-            foreach($recentLogs as $log){
-                $x = $log->dailyLogGoals; 
-                $goalLogs[] = $x; 
-            }
-          
             return view('user')
                 ->with('goals', $goals)
-                ->with('logs', $recentLogs)
-                ->with('goalLogs', $goalLogs);
+                ->with('logs', $recentLogs);
         } else {
             return view('user')->with('goals', $goals); 
         }

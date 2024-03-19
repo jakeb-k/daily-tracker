@@ -18,7 +18,9 @@ class DailyLogController extends Controller
      */
     public function index()
     {
-        return view('dailylog.create'); 
+        $log = DailyLog::find($id); 
+
+        return view('dailylog.show')->with('log',$log); 
     }
 
     /**
@@ -80,7 +82,13 @@ class DailyLogController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
+        $log = DailyLog::find($id); 
+
+        $goalProgress = $log->dailyLogGoals; 
+        
+
+        return view('dailylog.show')->with('log',$log)->with('goalProgress',$goalProgress); 
     }
 
     /**

@@ -13,6 +13,7 @@
         <script src="https://kit.fontawesome.com/0abaa836ef.js" crossorigin="anonymous"></script>
     </head>
     <body>
+        
         <div class="header">
             <div class="header-title">
                 <h1>DAILY GOALS</h1>
@@ -35,7 +36,7 @@
                 @endauth
             </div>
         </div>
-        
+       
         <div class="container">
             @yield('content')
         </div>

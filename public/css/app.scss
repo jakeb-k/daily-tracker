@@ -82,6 +82,41 @@ GOAL BOX STYLING
 /*
 
 
+DAILY LOG RECENT BOX STYLING
+
+
+*/
+.log-cont {
+    display:flex;
+    flex-direction:row;
+    margin:20px 0; 
+}
+.log-display {
+    box-shadow:0 0 5px rgb(85, 85, 85);
+    border-radius:15px; 
+    width:30%;
+    margin:0 1.5%;  
+    padding:1.5% 2.5%; 
+}
+.log-info {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+}
+.goal-progress {
+    color:rgb(86, 170, 86);
+    font-weight:bold; 
+}
+.quality-score {
+    position:relative;
+    height:32px;
+    width:32px; 
+    font-size:32px; 
+
+}
+/*
+
+
 
 GOAL CREATE FORM STLING
 
@@ -168,34 +203,21 @@ DAILY LOG FORM STLYLING
     background-color: #d1ecf1;
     border-color: #bee5eb;
 }
-.log-cont {
-    display:flex;
-    flex-direction:row;
-    margin:20px 0; 
-}
-.log-display {
+/* 
+
+
+
+DAILY LOG DETAIL VIEW STYLING
+
+
+
+*/
+.daily-log-display {
     box-shadow:0 0 5px rgb(85, 85, 85);
+    background:#F5F5F5; 
     border-radius:15px; 
-    width:30%;
-    margin:0 1.5%;  
+    width:50%;
+    margin:2.5% auto;  
     padding:1.5% 2.5%; 
 }
-.log-info {
-    display:flex;
-    flex-direction:row;
-    justify-content: space-around;
-}
-.goal-progress {
-    color:rgb(86, 170, 86);
-    font-weight:bold; 
-}
-.quality-score {
-    position:relative;
-    height:32px;
-    width:32px; 
-    font-size:32px; 
 
-}
-.goal-track-box {
-    border:1px solid red; 
-}
