@@ -16,7 +16,7 @@
         <p class="quality-score">{{ $emojis[$log->quality] ?? '😶'}}</p>
     </div>
 
-    <p>Hours: <span class="goal-progress"> {{$log->hours_worked}}</span></p>
+    <h5>Hours: <span class="goal-progress">+{{$log->hours_worked}}</span></h5>
     
     @isset($goalProgress[0])
     @foreach($goalProgress as $g)

@@ -493,5 +493,29 @@ MEDIA QUERIES
         width:95%; 
         margin:2.5%; 
     }
+    .full-log-cont {
+        width:95%; 
+    }
+    .full-log-info {
+        width:100%; 
+        margin-bottom:0 !important; 
+    }
+    .full-log-box {
+        flex-direction:column; 
+        padding:20px 0 0; 
+    }
+    .full-log-box .quality-score {
+        position:absolute; 
+        margin-top:-10px !important; 
+        margin-left:150px !important; 
+
+    }
+    .full-log-options {
+        margin-top:-40px; 
+        margin-bottom:25px; 
+    }
+    .daily-log-display {
+        width:95%; 
+    }
     
 }
