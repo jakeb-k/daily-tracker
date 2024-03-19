@@ -323,7 +323,9 @@ p.log-cont-title {
     justify-content: space-evenly;
     width:65%;
 }
-
+.full-log-cont .quality-score {
+    margin:30px auto; 
+}
 form button.submit-btn {
     width:40%; 
     cursor: pointer;
@@ -336,5 +338,5 @@ form button.submit-btn {
     font-size:large; 
 }
 .full-log-options {
-   padding:40px 0 0 20px; 
+   padding:40px 0 0 40px; 
 }
