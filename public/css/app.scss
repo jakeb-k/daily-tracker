@@ -467,4 +467,31 @@ MEDIA QUERIES
     .auth-sub .submit-btn {
         font-size:16px; 
     }
+    .user-options {
+        width:100%;
+        font-size:14px; 
+        margin:auto;
+        text-align: center;
+    }
+    .goal-box {
+        flex-direction: column-reverse;
+        width:80%;
+        margin:5px auto; 
+    }
+    .goal-metrics, .goal-info {
+        width:80%; 
+    }
+    .log-cont {
+        flex-direction: column;
+        width:100%; 
+    }
+    .log-display {
+        width:100%; 
+        margin:10px auto; 
+    }
+    .body-container {
+        width:95%; 
+        margin:2.5%; 
+    }
+    
 }
