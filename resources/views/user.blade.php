@@ -25,7 +25,7 @@
         @auth
         <div class="user-options">
             <a href='{{url("goal")}}'>Create a new Goal</a>
-            <a href="#">Do your daily log!</a>
+            <a href='{{url("/dailylog/create")}}'>Do your daily log!</a>
             <a href="#">View Log History</a>
         </div>
 

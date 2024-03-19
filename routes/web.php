@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GoalController;
+use App\Http\Controllers\DailyLogController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,6 +16,8 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
 
     Route::resource('goal', GoalController::class);
+
+    Route::resource('dailylog', DailyLogController::class);
 
     Route::get('/user', [ProfileController::class, 'show']);
 
