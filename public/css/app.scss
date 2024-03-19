@@ -429,3 +429,42 @@ h1.home-link {
         color:white !important; 
     }
 }
+/*
+
+
+
+MEDIA QUERIES
+
+
+
+*/
+@media only screen and (max-width:405px) {  
+    .header {
+        padding-bottom:10px;
+    }
+    .header  h1 {
+        margin-top:25px; 
+        font-family:'Arial Narrow', Arial, Helvetica, sans-serif;
+        font-size:32px; 
+        font-weight:bold; 
+    }
+    
+    .header-options {
+        width:40%; 
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+        button {
+            margin:5px 0;
+        }
+    }
+    .for-pass a{
+        font-size:14px; 
+    }
+    .auth-form{
+        width:300px; 
+    }
+    .auth-sub .submit-btn {
+        font-size:16px; 
+    }
+}
