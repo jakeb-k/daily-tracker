@@ -362,19 +362,17 @@ LOGIN and REGISTER FORM STYLING
    
 
 }
-a.home-link {
+h1.home-link {
     font-family:'Arial Narrow', Arial, Helvetica, sans-serif;
-    font-size:24px; 
+    font-size:32px; 
     font-weight:bold; 
     text-align: center;
     color:#2F4CDD;  
     text-decoration-color: #2F4CDD;
+    letter-spacing: 1px;
     
 }
-a.home-link:hover {
-    color:#2239acc6;  
-    text-decoration-color: #2239acc6;
-}
+
 .auth-input {
     margin: auto;
     display: flex;

@@ -7,9 +7,8 @@
 <div class="auth-form">
     <form method="POST" action="{{ route('login') }}">
         @csrf
-        <a href="{{url('/')}}" class="home-link">
-            <h1>DAILY GOALS</h1>
-        </a>
+        <h1 class="home-link">Login</h1>
+       
         <!-- Email Address -->
         <div class="auth-input">
             <x-input-label for="email" :value="__('Email')" />
@@ -43,7 +42,7 @@
                 <a href="{{ route('register') }}">Register</a>
         </div>
         <div class="auth-sub">
-        <x-primary-button class="submit-btn">
+            <x-primary-button class="submit-btn">
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
