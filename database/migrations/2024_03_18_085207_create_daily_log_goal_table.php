@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('name'); 
             $table->unsignedBigInteger('log_id');
             $table->foreign('log_id')->references('id')->on('daily_logs');
-            $table->unsignedBigInteger('goal_id');
-            $table->foreign('goal_id')->references('id')->on('goals');
+      
+            $table->foreignId('goal_id')->constrained('goals')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->float('amount'); 

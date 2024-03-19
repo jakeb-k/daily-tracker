@@ -8,6 +8,8 @@ $emojis = [
     1 => '🙂',  // Happy
     2 => '😁',  // Really Happy
 ];
+
+use Carbon\Carbon; 
 @endphp
 
     @if (session('success_msg'))
@@ -31,6 +33,7 @@ $emojis = [
 
         <h1>Welcome {{Auth::user()->name}}</h1>
         <p>Your current streak is * </p>
+        <h3>Recent Logs</h3>
         <div class="log-cont"> 
         @if($logs)
         @foreach($logs as $log)
@@ -60,10 +63,15 @@ $emojis = [
                     <!-- visual showing progress / total -->
                     <p>{{$g->progress}} / {{$g->total}}</p>
                     <!-- create countdown -->
-                    <p>{{$g->due_date}}</p>
+                    <?php 
+                        $today = Carbon::today(); 
+                        $daysBetween = $today->diffInDays($g->due_date); 
+                    ?> 
+                    <p>{{floor($daysBetween)}} Days Left</p>
                 </div>
                
             </div>
+
             <form class="delete-btn" method="POST" action='{{url("goal/$g->id")}}'>
                 {{csrf_field()}}
                 {{method_field('DELETE')}}
