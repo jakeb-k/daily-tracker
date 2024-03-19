@@ -35,7 +35,29 @@
         
         <div class="goal-display">
             <h1>Your Goals</h1>
-            
+            @foreach($goals as $g)
+            <div class="goal-box">
+                <div class="goal-info">
+                    <h3>{{$g->name}}</h3>
+                    <p>{{$g->description}}</p>
+                </div>
+                <div class="goal-metrics">
+                    <!-- visual showing progress / total -->
+                    <p>Total: {{$g->total}}</p>
+                    <!-- create countdown -->
+                    <p>{{$g->due_date}}</p>
+                </div>
+               
+            </div>
+            <form class="delete-btn" method="POST" action='{{url("goal/$g->id")}}'>
+            {{csrf_field()}}
+            {{method_field('DELETE')}}
+            <input name="goal_id" type="hidden" value="{{$g->id}}" />
+            <button type="submit">
+                DELETE
+            </button>
+        </form>
+            @endforeach
         </div>
         @endauth
     </div>

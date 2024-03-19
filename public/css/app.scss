@@ -32,7 +32,7 @@ HEADER STYLING
 /*
 
 
-INDEX PAGE STYLING
+HOME PAGE STYLING
 
 
 */
@@ -61,6 +61,23 @@ INDEX PAGE STYLING
         color:#2F4CDD; 
         font-family:Verdana,Arial, Helvetica, sans-serif; 
     }
+}
+/*
+
+
+
+GOAL BOX STYLING
+
+
+
+*/
+.goal-box {
+    display:flex;
+    flex-direction:row; 
+    justify-content: space-around;
+    width:80%;
+    margin:2.5% 0 0; 
+    border:1px solid #2F4CDD; 
 }
 /*
 

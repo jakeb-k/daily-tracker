@@ -46,7 +46,7 @@ class GoalController extends Controller
         
         $goal->save();
 
-        return redirect('/')->with('success_msg','Goal was added!'); 
+        return redirect('/user')->with('success_msg','Goal was added!'); 
     }
 
     /**
@@ -78,6 +78,10 @@ class GoalController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $goal = Goal::find($id); 
+
+        $goal->delete();
+
+        return redirect()->back()->with('success_msg', 'Goal was deleted!');
     }
 }
