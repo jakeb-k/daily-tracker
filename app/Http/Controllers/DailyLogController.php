@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use App\Models\User; 
+use App\Models\Goal; 
+use App\Models\DailyLogGoal; 
+
 
 class DailyLogController extends Controller
 {
@@ -19,8 +25,9 @@ class DailyLogController extends Controller
      */
     public function create()
     {
-        
-        return view('dailylog.create'); 
+        $goals = Auth::user()->goals;  
+
+        return view('dailylog.create')->with('goals', $goals); 
     }
 
     /**

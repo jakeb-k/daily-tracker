@@ -6,7 +6,7 @@
                 {{csrf_field()}}
         <div class="create-input">
             <label class="form-label"> Name: </label>
-            <input type="text" name="name" placeholder="I want to be less angry">
+            <input type="text" name="name" placeholder="Fortnightly anger tracker">
             @error('name')
                 <div class="alert">{{ $message }}</div>
             @enderror
@@ -31,7 +31,7 @@
 
         <div class="create-input">
             <label class="form-label"> Description: </label>
-            <input type="text" name="description" placeholder="Short description of your goal">
+            <input type="text" name="description" placeholder="I want to be less angry">
             @error('description')
                 <div class="alert">{{ $message }}</div>
             @enderror

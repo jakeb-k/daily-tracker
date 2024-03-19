@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('daily_log_goal', function (Blueprint $table) {
             $table->id();
+            $table->string('name'); 
             $table->unsignedBigInteger('log_id');
             $table->foreign('log_id')->references('id')->on('daily_logs');
             $table->unsignedBigInteger('goal_id');

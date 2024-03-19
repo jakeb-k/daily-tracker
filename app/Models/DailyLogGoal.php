@@ -16,6 +16,7 @@ class DailyLogGoal extends Model
     protected $fillable=[
         'goal_id',
         'log_id',
+        'user_id',
         'amount',
     ]; 
     use HasFactory;
