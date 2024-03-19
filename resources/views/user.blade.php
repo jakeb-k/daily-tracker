@@ -60,9 +60,13 @@ use Carbon\Carbon;
                     <p>{{$g->description}}</p>
                 </div>
                 <div class="goal-metrics">
+                    <?php $percentage = ($g->progress / $g->total) * 100 ?> 
+                <div role="progressbar" aria-valuenow="67" aria-valuemin="0" 
+                aria-valuemax="100" style="--value: {{$percentage}}"></div>
                     <!-- visual showing progress / total -->
-                    <p>{{$g->progress}} / {{$g->total}}</p>
+                    <p class="percent">{{floor($percentage)}}%</p>
                     <!-- create countdown -->
+                    <p>{{$g->progress}} / {{$g->total}}</p>
                     <?php 
                         $today = Carbon::today(); 
                         $daysBetween = $today->diffInDays($g->due_date); 
