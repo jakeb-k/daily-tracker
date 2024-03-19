@@ -11,7 +11,7 @@ class DailyLog extends Model
         return $this->belongsTo('App\Models\User');
     }
     public function dailyLogGoals() {
-        return $this->hasMany('App\Models\DailyLogGoals');
+        return $this->hasMany('App\Models\DailyLogGoal', 'log_id');
     }
     protected $fillable=[
         'date',

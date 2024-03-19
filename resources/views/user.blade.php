@@ -1,5 +1,14 @@
 @extends('layouts.master')
 @section('content')
+@php
+$emojis = [
+    -2 => '😢', // Really Sad
+    -1 => '☹️', // Sad
+    0 => '😐',  // Neutral
+    1 => '🙂',  // Happy
+    2 => '😁',  // Really Happy
+];
+@endphp
 
     @if (session('success_msg'))
         <div class="alert alert-success">
@@ -22,16 +31,23 @@
 
         <h1>Welcome {{Auth::user()->name}}</h1>
         <p>Your current streak is * </p>
-        @if($log)
+        <div class="log-cont"> 
+        @if($logs)
+        @foreach($logs as $log)
         <div class="log-display">
-            <h3>Last Log</h3>
-            <p>Hours: {{$log->hours_worked}}</p>
-            <p>{{$log->note}}</p>
-            @foreach($goalLogs as $g)
-            <p>{{$g->name}}: +{{$g->amount}}</p>
-            @endforeach
-        </div>
+            <h5><i> {{$log->created_at->format('jS \of F')}}</i></h5>
+            <div class="log-info">
+                <p class="log-note">{{$log->note}}</p>
+                <p class="quality-score">{{ $emojis[$log->quality] ?? '😶'}}</p>
+            </div>
+            
+            <p>Hours: <span class="goal-progress"> {{$log->hours_worked}}</span></p>
+            <a href="">View Full Log</a>
+
+            </div>
+        @endforeach
         @endif
+        </div>
         <div class="goal-display">
             <h3>Your Goals</h3>
             @foreach($goals as $g)

@@ -67,15 +67,32 @@ class ProfileController extends Controller
     public function show(){
         $goals = Auth::user()->goals;
 
-        $mostRecentLog = Auth::user()->dailyLogs()->latest()->first(); 
-
-        if($mostRecentLog != null) {
-            $goalLogs = DailyLogGoal::where('log_id', $mostRecentLog->id)->get();
-            return view('user')->with('goals', $goals)->with('log', $mostRecentLog)->with('goalLogs', $goalLogs); 
+        $recentLogs = Auth::user()->dailyLogs()->latest()->take(3)->get();
+     
+        
+        $goalLogs = [];
+        if($recentLogs) {
+            foreach($recentLogs as $log){
+                $x = $log->dailyLogGoals; 
+                $goalLogs[] = $x; 
+            }
+          
+            return view('user')
+                ->with('goals', $goals)
+                ->with('logs', $recentLogs)
+                ->with('goalLogs', $goalLogs);
         } else {
-            return view('user')->with('goals', $goals)->with('log', ''); 
-
+            return view('user')->with('goals', $goals); 
         }
+       
+
+        // if($mostRecentLog != null) {
+        //     $goalLogs = DailyLogGoal::where('log_id', $mostRecentLog->id)->get();
+        //     return view('user')->with('goals', $goals)->with('log', $mostRecentLog)->with('goalLogs', $goalLogs); 
+        // } else {
+        //     return view('user')->with('goals', $goals); 
+
+        // }
 
       
     }

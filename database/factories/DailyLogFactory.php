@@ -21,8 +21,7 @@ class DailyLogFactory extends Factory
             'quality' => $this->faker->numberBetween(-2, 2), // Generates a number between -2 and 2
             'hours_worked' => $this->faker->randomFloat(1, 0, 8), // Generates a decimal between 0 and 24
             'user_id' => 1,
-            'created_at' => $date = $this->faker->dateTimeBetween('-2 weeks', 'now'),
-            'updated_at' => $date,
+          
             
         ];
     }
