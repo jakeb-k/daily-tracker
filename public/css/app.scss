@@ -340,3 +340,94 @@ form button.submit-btn {
 .full-log-options {
    padding:40px 0 0 40px; 
 }
+/*
+
+
+
+LOGIN and REGISTER FORM STYLING
+
+
+
+*/
+.auth-form{
+    width:400px; 
+    height:fit-content;
+    padding:1.5% 2.5% 15px; 
+    margin:50px auto; 
+    background:#F5F5F5; 
+    border:2px solid #FF9500; 
+    box-shadow:0 0 5px rgb(84, 84, 84); 
+    font-family:Verdana, Geneva, Tahoma, sans-serif; 
+    border-radius:15px; 
+   
+
+}
+a.home-link {
+    font-family:'Arial Narrow', Arial, Helvetica, sans-serif;
+    font-size:24px; 
+    font-weight:bold; 
+    text-align: center;
+    color:#2F4CDD;  
+    text-decoration-color: #2F4CDD;
+    
+}
+a.home-link:hover {
+    color:#2239acc6;  
+    text-decoration-color: #2239acc6;
+}
+.auth-input {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: center;
+}
+
+.auth-input input {
+    padding:10px 0;
+    align-self: center;
+    margin: 10px auto;
+    width: 90%;
+    font-size: 18px;
+    border-radius:15px; 
+    border: 1px solid gray;
+}
+
+.auth-input input:focus {
+    outline: 1px solid #2F4CDD;
+    border: 1px solid #2F4CDD;
+    padding: 10px 0;
+}
+.for-pass {
+    display:flex;
+    flex-direction:row; 
+    justify-content: space-around;
+    margin:10px 0;
+
+}
+.for-pass a {
+    text-decoration: none;
+    box-shadow: inset 0 0 0 0 #2F4CDD;
+    color: black;
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.for-pass a:hover {
+    box-shadow: inset 225px 0 0 0 #2F4CDD;
+    color: white;
+    border-radius:15px; 
+}
+.auth-sub {
+    width:100%; 
+    text-align: center;
+    margin:20px 0;  
+}
+.auth-sub .submit-btn {
+    color:black !important; 
+    border:2px solid #FF9500 !important; 
+    :hover {
+        color:white !important; 
+    }
+}

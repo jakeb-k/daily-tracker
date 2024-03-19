@@ -6,7 +6,7 @@ use App\Http\Controllers\DailyLogController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('index');
+    return redirect('/user');
 });
 
 Route::get('/dashboard', function () {

@@ -24,6 +24,7 @@ use Carbon\Carbon;
     @endif
 
     <div class="body-container">
+        
         @auth
         <div class="user-options">
             <a href='{{url("goal")}}'>Create a new Goal</a>
@@ -44,7 +45,7 @@ use Carbon\Carbon;
                 <p class="quality-score">{{ $emojis[$log->quality] ?? '😶'}}</p>
             </div>
             
-            <p>Hours: <span class="goal-progress"> {{$log->hours_worked}}</span></p>
+            <p>Hours: <span class="goal-progress">+{{$log->hours_worked}}</span></p>
             <a href='{{url("/dailylog/".$log->id)}}'>View Full Log</a>
 
             </div>

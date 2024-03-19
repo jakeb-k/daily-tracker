@@ -16,7 +16,9 @@
         
         <div class="header">
             <div class="header-title">
-                <h1>DAILY GOALS</h1>
+                <a href="{{url('/')}}"> 
+                    <h1>DAILY GOALS</h1>
+                </a>
             </div>
             <div class="header-options">
                 @guest
