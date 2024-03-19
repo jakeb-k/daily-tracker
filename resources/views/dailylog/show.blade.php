@@ -27,6 +27,6 @@
     @else
         <p>No goal progress for this log 😢</p>
     @endisset
-    <a href='{{url("/user")}}'>Back</a>
+    <a href='{{url("/dailylog")}}'>Back</a>
 </div>
 @endsection

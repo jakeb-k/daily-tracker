@@ -18,9 +18,9 @@ class DailyLogController extends Controller
      */
     public function index()
     {
-        $log = DailyLog::find($id); 
+        $logs = DailyLog::orderBy('created_at', 'desc')->get(); 
 
-        return view('dailylog.show')->with('log',$log); 
+        return view('dailylog.index')->with('logs',$logs); 
     }
 
     /**

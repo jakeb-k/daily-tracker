@@ -104,17 +104,17 @@ GOAL BOX STYLING
 @keyframes progress {
     0% { --percentage: 0; }
     100% { --percentage: var(--value); }
-  }
+}
   
-  @property --percentage {
+@property --percentage {
     syntax: '<number>';
     inherits: true;
     initial-value: 0;
-  }
+}
   
-  [role="progressbar"] {
+[role="progressbar"] {
     --percentage: var(--value);
-    --primary: #369;
+    --primary: #2F4CDD;
     --secondary: #adf;
     --size: 100px;
     animation: progress 2s 0.5s forwards;
@@ -125,9 +125,9 @@ GOAL BOX STYLING
     overflow: hidden;
     display: grid;
     place-items: center;
-  }
+}
   
-  [role="progressbar"]::before {
+[role="progressbar"]::before {
     content: "";
     position: absolute;
     top: 0;
@@ -139,6 +139,10 @@ GOAL BOX STYLING
     mask-mode: alpha;
     -webkit-mask: radial-gradient(#0000 55%, #000 0);
     -webkit-mask-mode: alpha;
+}
+  .delete-btn{
+   position:relative;
+   margin-top:-20px;  
   }
 
 /*
@@ -278,9 +282,53 @@ DAILY LOG DETAIL VIEW STYLING
 .daily-log-display {
     box-shadow:0 0 5px rgb(85, 85, 85);
     background:#F5F5F5; 
+    border:2px solid #FF9500; 
     border-radius:15px; 
     width:50%;
     margin:2.5% auto;  
     padding:1.5% 2.5%; 
 }
+/*
 
+
+
+DAILY LOG INDEX PAGE STLYLING
+
+
+
+*/
+.full-log-cont {
+    width:50%;
+    border:2px solid #FF9500; 
+    border-radius:15px;
+    background:#F5F5F5; 
+    padding:0 2.5%; 
+    margin:50px auto; 
+}
+p.log-cont-title {
+    margin:25px 0; 
+    font-size:large; 
+ 
+    font-family:Verdana,Arial, Helvetica, sans-serif; 
+    font-size:36px; 
+}
+.full-log-box {
+    border-bottom:1px solid #2F4CDD; 
+    margin:2.5% auto; 
+    display:flex;
+    flex-direction:row; 
+
+}
+.full-log-info {
+    display:flex;
+    flex-direction:column; 
+    justify-content: space-evenly;
+    width:65%;
+}
+
+.delete-btn {
+    margin-top:20px; 
+}
+.full-log-options {
+   padding:40px 0 0 20px; 
+}

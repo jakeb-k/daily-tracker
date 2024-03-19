@@ -27,8 +27,8 @@ use Carbon\Carbon;
         @auth
         <div class="user-options">
             <a href='{{url("goal")}}'>Create a new Goal</a>
-            <a href='{{url("/dailylog/create")}}'> Do your daily log!</a>
-            <a href="#">View Log History</a>
+            <a href='{{url("/dailylog/create")}}'> Do a daily log!</a>
+            <a href='{{url("/dailylog")}}'>View Log History</a>
         </div>
 
         <h1>Welcome {{Auth::user()->name}}</h1>
@@ -58,6 +58,14 @@ use Carbon\Carbon;
                 <div class="goal-info">
                     <h3>{{$g->name}}</h3>
                     <p>{{$g->description}}</p>
+                    <form class="delete-btn" method="POST" action='{{url("goal/$g->id")}}'>
+                        {{csrf_field()}}
+                        {{method_field('DELETE')}}
+                        <input name="goal_id" type="hidden" value="{{$g->id}}" />
+                        <button type="submit">
+                            DELETE
+                        </button>
+                    </form>
                 </div>
                 <div class="goal-metrics">
                     <?php $percentage = ($g->progress / $g->total) * 100 ?> 
@@ -76,14 +84,7 @@ use Carbon\Carbon;
                
             </div>
 
-            <form class="delete-btn" method="POST" action='{{url("goal/$g->id")}}'>
-                {{csrf_field()}}
-                {{method_field('DELETE')}}
-                <input name="goal_id" type="hidden" value="{{$g->id}}" />
-                <button type="submit">
-                    DELETE
-                </button>
-            </form>
+            
             @endforeach
         </div>
         @endauth
