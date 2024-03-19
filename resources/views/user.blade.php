@@ -13,15 +13,6 @@
     @endif
 
     <div class="body-container">
-        @guest
-            <h1>LOGIN/REGISTER TO START ACHIEVING YOUR GOALS!</h1>
-            <a href="{{ route('login') }}">
-                <button>LOGIN</button>
-            </a>
-            <a href="{{ route('register') }}">
-                <button>REGISTER</button>
-            </a>
-        @endguest
         @auth
         <div class="user-options">
             <a href='{{url("goal")}}'>Create a new Goal</a>
@@ -32,9 +23,16 @@
         <h1>Welcome {{Auth::user()->name}}</h1>
         <p>Your current streak is * </p>
         
-        
+        <div class="log-display">
+            <h3>Last Log</h3>
+            <p>Hours: {{$log->hours_worked}}</p>
+            <p>{{$log->note}}</p>
+            @foreach($goalLogs as $g)
+            <p>{{$g->id}}: {{$g->amount}}</p>
+            @endforeach
+        </div>
         <div class="goal-display">
-            <h1>Your Goals</h1>
+            <h3>Your Goals</h3>
             @foreach($goals as $g)
             <div class="goal-box">
                 <div class="goal-info">
@@ -50,13 +48,13 @@
                
             </div>
             <form class="delete-btn" method="POST" action='{{url("goal/$g->id")}}'>
-            {{csrf_field()}}
-            {{method_field('DELETE')}}
-            <input name="goal_id" type="hidden" value="{{$g->id}}" />
-            <button type="submit">
-                DELETE
-            </button>
-        </form>
+                {{csrf_field()}}
+                {{method_field('DELETE')}}
+                <input name="goal_id" type="hidden" value="{{$g->id}}" />
+                <button type="submit">
+                    DELETE
+                </button>
+            </form>
             @endforeach
         </div>
         @endauth
