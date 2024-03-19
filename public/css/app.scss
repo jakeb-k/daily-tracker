@@ -206,7 +206,7 @@ GOAL CREATE FORM STLING
     }
 
 }
-button.submit-btn {
+.create-form button.submit-btn {
     width:80%; 
     cursor: pointer;
     margin:10%; 
@@ -517,5 +517,7 @@ MEDIA QUERIES
     .daily-log-display {
         width:95%; 
     }
-    
+    .create-form {
+        width:95%; 
+    }
 }
