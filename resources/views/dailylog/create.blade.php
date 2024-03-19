@@ -2,7 +2,7 @@
 @section('content')
 <div class="create-form">
     <h3>Do your daily log for {{date('jS \of F');}}</h3>
-    <form id="form" method="POST" action='{{url("goal")}}'>
+    <form id="form" method="POST" action='{{url("dailylog")}}'>
                 {{csrf_field()}}
         <div class="create-input">
             <label class="form-label"> Hours Worked: </label>
@@ -28,10 +28,11 @@
 
             <input type="radio" id="very-happy" name="quality" value="2" class="quality-radio">
             <label for="very-happy" class="quality-label">😁</label>
+           
+        </div>
             @error('quality')
                 <div class="alert">{{ $message }}</div>
             @enderror
-        </div>
 
         <div class="create-input">
             <label class="form-label"> Note: </label>
@@ -45,8 +46,8 @@
         @foreach($goals as $g)
             <div class="create-input">
                 <label class="form-label"> {{$g->name}}: </label>
-                <input type="number" name="amount{{$g->id}}" placeholder="How many hours contributed?">
-                @error('note')
+                <input type="number" name="amount{{$g->id}}" placeholder="{{$g->description}}">
+                @error('amount.$g->id')
                     <div class="alert">{{ $message }}</div>
                 @enderror
             </div>

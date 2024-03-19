@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('daily_log_goal', function (Blueprint $table) {
+        Schema::create('daily_log_goals', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); 
             $table->unsignedBigInteger('log_id');
             $table->foreign('log_id')->references('id')->on('daily_logs');
             $table->unsignedBigInteger('goal_id');
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('daily_log_goal');
+        Schema::dropIfExists('daily_log_goals');
     }
 };

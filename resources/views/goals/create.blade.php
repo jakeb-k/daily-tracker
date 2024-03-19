@@ -15,6 +15,8 @@
         <div class="create-input">
             <label class="form-label"> Goal Total: </label>
             <em style="margin-bottom:10px;"> E.g. I don't to be angry more than<b> 10 </b>times</em>
+            <em style="margin-bottom:10px;"> E.g. I want to do<b> 10 </b>hours on my art</em>
+
             <input type="number" name="total" placeholder="10">
             @error('total')
                 <div class="alert">{{ $message }}</div>

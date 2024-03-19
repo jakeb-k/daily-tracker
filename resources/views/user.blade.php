@@ -43,7 +43,7 @@
                 </div>
                 <div class="goal-metrics">
                     <!-- visual showing progress / total -->
-                    <p>Total: {{$g->total}}</p>
+                    <p>{{$g->progress}} / {{$g->total}}</p>
                     <!-- create countdown -->
                     <p>{{$g->due_date}}</p>
                 </div>

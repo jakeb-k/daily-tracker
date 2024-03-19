@@ -42,6 +42,7 @@ class GoalController extends Controller
         $goal->due_date = $validatedData['due_date'];
         $goal->total = $validatedData['total'];
         $goal->description = $validatedData['description'];
+        $goal->progress = 0; 
         $goal->user_id = Auth::user()->id; 
 
         

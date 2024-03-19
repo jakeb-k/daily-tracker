@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->date('due_date');
-            $table->float('progress')->nullable();
+            $table->float('progress');
             $table->float('total');
             $table->string('description'); 
             $table->unsignedBigInteger('user_id');
