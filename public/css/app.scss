@@ -216,8 +216,6 @@ button.submit-btn {
     background:#F5F5F5;
     font-weight:bold; 
     font-size:large; 
-
-   
 }
 button.submit-btn:hover {
     color:#FF9500;
@@ -326,8 +324,16 @@ p.log-cont-title {
     width:65%;
 }
 
-.delete-btn {
-    margin-top:20px; 
+form button.submit-btn {
+    width:40%; 
+    cursor: pointer;
+    margin:0; 
+    padding:10px; 
+    border-radius:5px; 
+    color:#FF9500;
+    background:#F5F5F5;
+    font-weight:bold; 
+    font-size:large; 
 }
 .full-log-options {
    padding:40px 0 0 20px; 

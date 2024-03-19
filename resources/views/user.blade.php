@@ -58,11 +58,11 @@ use Carbon\Carbon;
                 <div class="goal-info">
                     <h3>{{$g->name}}</h3>
                     <p>{{$g->description}}</p>
-                    <form class="delete-btn" method="POST" action='{{url("goal/$g->id")}}'>
+                    <form method="POST" action='{{url("goal/$g->id")}}'>
                         {{csrf_field()}}
                         {{method_field('DELETE')}}
                         <input name="goal_id" type="hidden" value="{{$g->id}}" />
-                        <button type="submit">
+                        <button class="submit-btn" type="submit">
                             DELETE
                         </button>
                     </form>
