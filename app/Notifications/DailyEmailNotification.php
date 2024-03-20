@@ -36,7 +36,7 @@ class DailyEmailNotification extends Notification
     {
         return (new MailMessage)
                     ->line("Don't forgot your daily log!")
-                    ->action('Do your log now to keep your streak!', url('/user'))
+                    ->action('Do your log now to keep your streak!', url('daily-goals/public/user'))
                     ->line("Don't let your streak die! Stay consistent!");
     }
 
