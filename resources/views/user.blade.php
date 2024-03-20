@@ -33,7 +33,7 @@ use Carbon\Carbon;
         </div>
 
         <h1>Welcome {{Auth::user()->name}}</h1>
-        <p>Your current streak is * </p>
+        <p>Your current streak is <b>{{$streak+1}}🔥</b> </p>
         <h3>Recent Logs</h3>
         <div class="log-cont"> 
         @if($logs)

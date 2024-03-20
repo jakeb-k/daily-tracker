@@ -13,6 +13,9 @@ use App\Models\Goal;
 use App\Models\DailyLog;
 use App\Models\DailyLogGoal;
 
+use Carbon\Carbon;
+
+
 class ProfileController extends Controller
 {
     /**
@@ -69,14 +72,49 @@ class ProfileController extends Controller
 
         $recentLogs = Auth::user()->dailyLogs()->latest()->take(3)->get();
      
+        $logs = DailyLog::all(); 
+                // Assuming $entities is your collection of entity instances.
+        $uniqueDates = $logs->sortBy('created_at')->pluck('created_at')->map(function ($date) {
+            return Carbon::parse($date)->startOfDay()->toDateString();
+        })->unique();
+        
+        
+        // Initialize the streak and the previous date.
+        $streak = 0;
+        $previousDate = null;
+
+        // Today's date for comparison, making sure we include today in the streak if it exists.
+        $today = Carbon::today()->toDateString();
+
+        // Loop through unique dates
+        foreach ($uniqueDates as $dateString) {
+
+            $currentDate = Carbon::parse($dateString);
+          
+            if ($previousDate) {
+                $difference = $currentDate->diffInDays($previousDate);
+                
+                if ($difference == -1) {
+                    $streak++;
+                } elseif ($difference < -1) {
+                    // Reset streak if there's a gap of more than one day
+                    $streak = 1;
+                }
+            } else {
+                // Start the streak or set it to 1 if today has an entry
+                $streak = ($currentDate->toDateString() === $today) ? 1 : 0;
+            }
+            $previousDate = $currentDate;
+        }
         
         $goalLogs = [];
         if($recentLogs) {
             return view('user')
                 ->with('goals', $goals)
-                ->with('logs', $recentLogs);
+                ->with('logs', $recentLogs)
+                ->with('streak', $streak);
         } else {
-            return view('user')->with('goals', $goals); 
+            return view('user')->with('goals', $goals)->with('streak', $streak); 
         }
        
 
