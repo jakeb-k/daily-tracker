@@ -16,8 +16,8 @@ class DailyLogSeeder extends Seeder
     {
         for ($i = 13; $i >= 0; $i--) {
             DailyLog::factory()->create([
-                'created_at' => Carbon::now()->subDays($i),
-                'updated_at' => Carbon::now()->subDays($i),
+                'created_at' => Carbon::now()->subDays($i+1),
+                'updated_at' => Carbon::now()->subDays($i+1),
             ]);
         }
     }
