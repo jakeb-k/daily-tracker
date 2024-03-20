@@ -90,6 +90,49 @@ use Carbon\Carbon;
         </div>
         @endauth
     </div>
+    <script>
+$(document).ready(function() {
 
+    $('.log-display').each(function(index) {
+        $(this).delay(index * 500).animate({
+            opacity: 1,
+            left: '0px'
+        }, 500);
+    });
+
+    
+    const goalBoxes = document.querySelectorAll('.goal-box'); 
+
+    // General observer callback function
+    function observerCallback(entries, observer) {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                // Check if the target has the 'goal-box' class
+                if ($(target).hasClass('goal-box')) {
+                    $(target).animate({
+                        opacity: 1,
+                        bottom: '0px'
+                    }, 700);
+                    observer.unobserve(target);
+                }
+            }
+        });
+    }
+
+    // Setup observer
+    const options = { threshold: 0.1 };
+    const observer = new IntersectionObserver(observerCallback, options);
+
+    // Observe each .goal-box element
+    goalBoxes.forEach((box, index) => {
+        setTimeout(() => {
+            observer.observe(box);
+        }, index * 300); // Delay of 0.3s between each observation setup
+    });
+
+});
+
+    </script>
 
 @endsection
