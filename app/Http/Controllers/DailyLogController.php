@@ -18,6 +18,7 @@ class DailyLogController extends Controller
      */
     public function index()
     {
+        //order by most recent so they are the first to be displayed
         $logs = DailyLog::where('user_id', Auth::user()->id)
                 ->orderBy('created_at', 'desc')
                 ->get();
@@ -41,13 +42,14 @@ class DailyLogController extends Controller
     public function store(Request $request)
     {
         $dlgs = []; 
-
+        //validate and sanitise the input
         $validatedData = $request->validate([
             'hours_worked' => 'required|numeric|gt:0',
             'quality' => 'required|integer',
             'note' => 'required|max:250'
         ]);
 
+        //create the new daily log and assign the values
         $dailyLog = new DailyLog(); 
         $dailyLog->hours_worked = $validatedData['hours_worked']; 
         $dailyLog->quality = $validatedData['quality']; 
@@ -56,20 +58,25 @@ class DailyLogController extends Controller
       
         $dailyLog->save(); 
 
-
+        //get all the goals so the id can be assigned as foreign key
         $goals = Auth::user()->goals; 
 
+        //loop through goals, as these are the goal progress values to be stored as bridging entities
         foreach($goals as $g) {
             $validateDlg =  $request->validate([
                 'amount'.$g->id => 'required|numeric|gte:0'
             ]); 
+            //once validated the data create a new daily log goal
             $dlg = new DailyLogGoal();
             $dlg->name = $g->name; 
             $dlg->user_id = Auth::user()->id; 
             $dlg->goal_id = $g->id; 
+            //the goals are looped through in the form and given the name amount{{$g->id}}
+            //so this is a way to access them
             $dlg->amount = $validateDlg['amount'.$g->id]; 
             $dlg->log_id = $dailyLog->id; 
             
+            //progress is saved as floatval, as integer may cause improper calculations
             $g->progress += floatval($validateDlg['amount'.$g->id]); 
             
             $g->save(); 
@@ -87,6 +94,7 @@ class DailyLogController extends Controller
         
         $log = DailyLog::find($id); 
 
+        //Model function
         $goalProgress = $log->dailyLogGoals; 
         
 

@@ -73,7 +73,8 @@ class ProfileController extends Controller
         $recentLogs = Auth::user()->dailyLogs()->latest()->take(3)->get();
      
         $logs = DailyLog::all(); 
-                // Assuming $entities is your collection of entity instances.
+      
+        //maps the created_at column to an array that is unique so duplicate daily logs are not counted
         $uniqueDates = $logs->sortBy('created_at')->pluck('created_at')->map(function ($date) {
             return Carbon::parse($date)->startOfDay()->toDateString();
         })->unique();
@@ -83,7 +84,7 @@ class ProfileController extends Controller
         $streak = 0;
         $previousDate = null;
 
-        // Today's date for comparison, making sure we include today in the streak if it exists.
+        // Today's date for comparison, making sure to include today in the streak if it exists.
         $today = Carbon::today()->toDateString();
 
         // Loop through unique dates
@@ -95,6 +96,7 @@ class ProfileController extends Controller
                 $difference = $currentDate->diffInDays($previousDate);
                 
                 if ($difference == -1) {
+                    //If there is a day difference +1 to the streak
                     $streak++;
                 } elseif ($difference < -1) {
                     // Reset streak if there's a gap of more than one day
@@ -116,15 +118,6 @@ class ProfileController extends Controller
         } else {
             return view('user')->with('goals', $goals)->with('streak', $streak); 
         }
-       
-
-        // if($mostRecentLog != null) {
-        //     $goalLogs = DailyLogGoal::where('log_id', $mostRecentLog->id)->get();
-        //     return view('user')->with('goals', $goals)->with('log', $mostRecentLog)->with('goalLogs', $goalLogs); 
-        // } else {
-        //     return view('user')->with('goals', $goals); 
-
-        // }
 
       
     }

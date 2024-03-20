@@ -29,7 +29,7 @@ class GoalController extends Controller
             'total' => 'required|numeric|gt:0',
             'description' => 'required|max:250'
         ]);
-    
+        //once data is validated and sanitised assign to new Goal object
         $goal = new Goal();
         $goal->name = $validatedData['name'];
         $goal->due_date = $validatedData['due_date'];

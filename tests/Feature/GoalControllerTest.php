@@ -28,7 +28,7 @@ test('store method saves a new goal and redirects', function () {
     ];
 
     $response = $this->post('/goal', $goalData);
-    $response->assertRedirect('/user'); // Adjust based on your actual redirect route
+    $response->assertRedirect('/user'); 
     $this->assertDatabaseHas('goals', ['name' => 'Test Goal']);
 });
 
