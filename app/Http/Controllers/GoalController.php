@@ -10,20 +10,13 @@ use Illuminate\Support\Facades\Auth;
 class GoalController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a create form of the resource.
      */
     public function index()
     {
         return view('goals.create'); 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.

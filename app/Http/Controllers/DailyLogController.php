@@ -18,7 +18,9 @@ class DailyLogController extends Controller
      */
     public function index()
     {
-        $logs = DailyLog::orderBy('created_at', 'desc')->get(); 
+        $logs = DailyLog::where('user_id', Auth::user()->id)
+                ->orderBy('created_at', 'desc')
+                ->get();
 
         return view('dailylog.index')->with('logs',$logs); 
     }
